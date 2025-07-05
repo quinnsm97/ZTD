@@ -106,6 +106,7 @@ def add_task_with_category(input_str):
         }
         print(f"[bold green]Added:[/bold green] [{cat or '-'}] {desc} ({prio or '-'}){' ~ ' + recur if recur else ''}{' ^ ' + due if due else ''}")
         tasks.append(task)
+        save_tasks()
 
 # === FN FOR DELETING TASKS ===
 def delete_tasks(input_str):
@@ -117,6 +118,7 @@ def delete_tasks(input_str):
                 print(f"[red]Deleted:[/red] {removed['description']}")
             else:
                 print(f"[yellow]Task {i} does not exist.[/yellow]")
+        save_tasks()
     except ValueError:
         print("[red]Please enter valid task numbers separated by spaces.[/red]")
 
@@ -133,6 +135,7 @@ def mark_done(input_str):
                 print(f"[bold green]Marked as done:[/bold green] {task['description']}")
             else:
                 print(f"[yellow]Task {i} does not exist.[/yellow]")
+        save_tasks()
     except ValueError:
         print("[red]Please enter valid task numbers separated by spaces.[/red]")
 
@@ -144,6 +147,7 @@ def move_task(input_str):
             task = tasks.pop(from_pos - 1)
             tasks.insert(to_pos - 1, task)
             print(f"[green]Moved task from position {from_pos} to {to_pos}.[/green]")
+            save_tasks()
         else:
             print("[red]Invalid task numbers.[/red]")
     except ValueError:
@@ -161,10 +165,11 @@ def set_priority_command(input_str):
                 print(f"[bold green]Set priority:[/bold green] Task {i} -> {priority}")
             else:
                 print(f"[yellow]Task {i} not found.[/yellow]")
+        save_tasks()
     except Exception:
         print("[red]Usage: priority <task_id#> <priority>[/red]")
-#== FN TO UPDATE DUE DATE OF TASKS
 
+#== FN TO UPDATE DUE DATE OF TASKS
 def set_due_date_command(input_str):
     try:
         parts = input_str.strip().split()
@@ -181,9 +186,9 @@ def set_due_date_command(input_str):
         if 1 <= task_id <= len(tasks):
             tasks[task_id - 1]["due"] = due_date
             print(f"[bold green]Set due date:[/bold green] Task {task_id} -> {due_date}")
-            save_tasks()
         else:
             print(f"[yellow]Task {task_id} not found.[/yellow]")
+        save_tasks()
     except Exception as e:
         print(f"[red]Usage: duedate <task_id#> <due date>[/red]")
 
@@ -199,6 +204,7 @@ def set_category_command(input_str):
                 print(f"[bold green]Set category:[/bold green] Task {i} -> {category}")
             else:
                 print(f"[yellow]Task {i} not found.[/yellow]")
+        save_tasks()
     except Exception:
         print("[red]Usage: category <task_id#> <category>[/red]")
 
@@ -214,6 +220,7 @@ def set_recur_command(input_str):
                 print(f"[bold green]Set recurrence:[/bold green] Task {i} -> {recurrence}")
             else:
                 print(f"[yellow]Task {i} not found.[/yellow]")
+        save_tasks()
     except Exception:
         print("[red]Usage: recur <task_id#> <daily|weekly|monthly>[/red]")
 
