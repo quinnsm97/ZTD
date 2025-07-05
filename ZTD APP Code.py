@@ -14,9 +14,11 @@ import time
 
 TASKS_FILE = "tasks.json"
 DONE_FILE = "done_tasks.json"
+LATER_FILE = "later_tasks.json"
 
 tasks = []
 completed_tasks = []
+later_tasks = []
 console = Console()
 
 # === LOAD AND SAVE TASKS ===
@@ -70,6 +72,28 @@ def show_done_tasks():
         prio = task['priority'] if task['priority'] else "-"
         table.add_row(str(idx), cat, task['description'], prio)
     console.print(table)
+
+def show_tasks_by_category():
+    grouped = defaultdict(list)
+    for task in tasks:
+        grouped[task.get("category", "").strip() or "Uncategorized"].append(task)
+
+    for cat, cat_tasks in grouped.items():
+        print(f"\n[bold underline green]{cat}[/bold underline green]")
+        table = Table()
+        table.add_column("#", style="cyan")
+        table.add_column("Description", style="white")
+        table.add_column("Priority", style="magenta")
+        table.add_column("Recurring", style="yellow")
+        table.add_column("Due", style="red")
+
+        for idx, task in enumerate(cat_tasks, start=1):
+            desc = task['description']
+            prio = task.get('priority', '-') or "-"
+            recur = task.get('recurring', '-') or "-"
+            due = task.get('due', '-') or "-"
+            table.add_row(str(idx), desc, prio, recur, due)
+        console.print(table)
 
 # === FN FOR ADDING TASKS ===
 def add_task_with_category(input_str):
@@ -289,6 +313,22 @@ def run_cli():
         else:
             print("[yellow]Unknown command. Try: add, list, delete, done, move, priority, category, recur, categories, showdone, help, exit[/yellow]")
 
+def move_task(input_str):
+    try:
+        parts = input_str.strip().split()
+        if len(parts) != 2:
+            raise ValueError
+        from_idx, to_idx = int(parts[0]) - 1, int(parts[1]) - 1
+        if 0 <= from_idx < len(tasks) and 0 <= to_idx < len(tasks):
+            task = tasks.pop(from_idx)
+            tasks.insert(to_idx, task)
+            print(f"[bold cyan]Moved:[/bold cyan] {task['description']} from {from_idx+1} to {to_idx+1}")
+            save_tasks()
+        else:
+            print("[red]Invalid indices. Use valid task numbers.[/red]")
+    except ValueError:
+        print("[red]Usage: move <from> <to>. Example: move 3 1[/red]")
+
 # === HELP MENU ===
 def show_help():
     print("""
@@ -312,6 +352,8 @@ Task Details:
 Filtering & Views:
 - showdone                                : View completed tasks.
 - categories                              : View tasks grouped by category
+- later <task_id# ...>                    : Move task to Later list.
+- showlater                               : View tasks saved for later.
 
 Other:
 - save                                    : Save tasks manually.
@@ -319,9 +361,9 @@ Other:
 - exit                                    : Save and exit the program.
 
 Notes:
-- Tasks are saved to tasks.json and done_tasks.json
+- Tasks are saved to tasks.json, done_tasks.json, and later_tasks.json
 - Recurring tasks reappear based on last completed date
 - Supports natural language due dates using ^tomorrow, ^next Friday, etc.
 - Sends periodic reminders to review your task list
 """)
-run_cli()
+    run_cli()
