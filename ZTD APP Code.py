@@ -366,4 +366,6 @@ Notes:
 - Supports natural language due dates using ^tomorrow, ^next Friday, etc.
 - Sends periodic reminders to review your task list
 """)
+
+if __name__ == "__main__":
     run_cli()
