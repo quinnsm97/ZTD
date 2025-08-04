@@ -18,7 +18,6 @@ DONE_FILE = "done_tasks.json"
 
 tasks = []
 completed_tasks = []
-later_tasks = []
 console = Console()
 
 # === LOAD AND SAVE TASKS ===
@@ -359,7 +358,7 @@ Other:
 - exit                                    : Save and exit the program.
 
 Notes:
-- Tasks are saved to tasks.json, done_tasks.json, and later_tasks.json
+- Tasks are saved to tasks.json, done_tasks.json
 - Recurring tasks reappear based on last completed date
 - Supports natural language due dates using ^tomorrow, ^06/10/25, etc.
 - Sends periodic reminders to review your task list
