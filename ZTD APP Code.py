@@ -351,7 +351,6 @@ Task Details:
 Filtering & Views:
 - showdone                                : View completed tasks.
 - categories                              : View tasks grouped by category
-- showlater                               : View tasks saved for later.
 
 Other:
 - save                                    : Save tasks manually.
