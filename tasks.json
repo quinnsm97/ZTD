@@ -1,26 +1,5 @@
 [
   {
-    "description": "outplacement tasks",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
-    "description": "catch up on coding",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": "2025-06-24"
-  },
-  {
-    "description": "coderacademy assignment 2",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
     "description": "clean the house a bit",
     "category": "",
     "priority": "",
@@ -29,13 +8,6 @@
   },
   {
     "description": "eat breakfast",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
-    "description": "do japa",
     "category": "",
     "priority": "",
     "recurring": "",
@@ -55,39 +27,4 @@
     "recurring": "",
     "due": null
   },
-  {
-    "description": "apply for DSW opportunities",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
-    "description": "work on purposefields",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
-    "description": "drive uber eats",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
-    "description": "purposefields pinterest board",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  },
-  {
-    "description": "career process on myself",
-    "category": "",
-    "priority": "",
-    "recurring": "",
-    "due": null
-  }
 ]
