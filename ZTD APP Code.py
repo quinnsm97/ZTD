@@ -1,5 +1,6 @@
 # ZTD APP - a Zen to Done Command Line Interface app
 # Before running, pip install rich schedule dateparser
+# run python from virtual environment where packages are installed
 import json
 import re
 from collections import defaultdict
