@@ -32,7 +32,7 @@ Prior to running the app, the following third party tools should be installed by
 
 To run the app for the first time, run the following code: 
     
-    `python 'ZTD APP CODE.py'  
+    `python 'ZTD_APP_CODE.py'  
     `
 
 Then interact using commands like: 
