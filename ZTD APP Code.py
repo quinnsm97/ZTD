@@ -14,7 +14,6 @@ import time
 
 TASKS_FILE = "tasks.json"
 DONE_FILE = "done_tasks.json"
-LATER_FILE = "later_tasks.json"
 
 tasks = []
 completed_tasks = []
@@ -347,12 +346,11 @@ Task Details:
 - priority <task_id#> <priority>          : Set priority (urgent, today, tomorrow, later).
 - category <task_id#> <category>          : Set category.
 - recur <task_id#> <frequency>            : Set recurrence (daily, weekly, monthly).
-- duedate <task_id#> <due date>           : Set or update due date (e.g., duedate 2 next Friday)
+- duedate <task_id#> <due date>           : Set or update due date (e.g., duedate 2 4/9/25)
 
 Filtering & Views:
 - showdone                                : View completed tasks.
 - categories                              : View tasks grouped by category
-- later <task_id# ...>                    : Move task to Later list.
 - showlater                               : View tasks saved for later.
 
 Other:
@@ -363,7 +361,7 @@ Other:
 Notes:
 - Tasks are saved to tasks.json, done_tasks.json, and later_tasks.json
 - Recurring tasks reappear based on last completed date
-- Supports natural language due dates using ^tomorrow, ^next Friday, etc.
+- Supports natural language due dates using ^tomorrow, ^06/10/25, etc.
 - Sends periodic reminders to review your task list
 """)
 
