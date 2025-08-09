@@ -22,6 +22,13 @@ console = Console()
 
 # === LOAD AND SAVE TASKS ===
 def load_tasks():
+      """
+    Load tasks and completed tasks - from JSON files.
+
+    Loads data from TASKS_FILE into a global 'tasks' list
+    and from DONE_FILE into a global 'completed_tasks' list.
+    If the files do not exist or if they contain invalid data, lists are reset to empty.
+    """
     global tasks, completed_tasks
     try:
         with open(TASKS_FILE, "r") as f:
@@ -35,6 +42,12 @@ def load_tasks():
         completed_tasks = []
 
 def save_tasks():
+     """
+    Save the current lists of tasks and completed tasks to the JSON files in the main folder.
+
+    Side Effects:
+        Overwrites the TASKS_FILE and DONE_FILE with current in-memory task data.
+    """
     with open(TASKS_FILE, "w") as f:
         json.dump(tasks, f, indent=2)
     with open(DONE_FILE, "w") as f:
@@ -42,6 +55,14 @@ def save_tasks():
 
 # === FUNCTIONS ABOUT DISPLAY ===
 def show_tasks():
+      """
+    Display all current active tasks in a formatted table.
+
+    Shows task number, category, description, priority,
+    recurrence, and due date for each task.
+
+    If a column is left blank it will display '-' 
+    """
     table = Table(title="Your Tasks")
     table.add_column("#", style="cyan")
     table.add_column("Category", style="green")
@@ -50,7 +71,7 @@ def show_tasks():
     table.add_column("Recurring", style="yellow")
     table.add_column("Due", style="red")
 
-    for idx, task in enumerate(tasks, start=1):
+    for idx, task in enumerate(tasks, start=1): 
         cat = task['category'] if task['category'] else "-"
         desc = task['description']
         prio = task['priority'] if task['priority'] else "-"
@@ -59,7 +80,19 @@ def show_tasks():
         table.add_row(str(idx), cat, desc, prio, recur, due)
     console.print(table)
 
-def show_done_tasks():
+def show_done_tasks():   
+    """
+    Display all completed tasks in a formatted table.
+
+    Shows:
+        - Task number
+        - Category (or '-' if none)
+        - Description
+        - Priority (or '-' if none)
+
+    Application currently uses rich to colour-code the sections. 
+    
+    """
     table = Table(title="Completed Tasks")
     table.add_column("#", style="cyan")
     table.add_column("Category", style="green")
@@ -73,6 +106,12 @@ def show_done_tasks():
     console.print(table)
 
 def show_tasks_by_category():
+        """
+    Display active tasks grouped by category in formatted tables.
+
+    Groups tasks by their category field, defaulting to "Uncategorized"
+    when no category is set.
+    """
     grouped = defaultdict(list)
     for task in tasks:
         grouped[task.get("category", "").strip() or "Uncategorized"].append(task)
@@ -96,6 +135,22 @@ def show_tasks_by_category():
 
 # === FN FOR ADDING TASKS ===
 def add_task_with_category(input_str):
+       """
+    Parse and add one or more tasks from a single input string.
+
+    The input can include optional inline metadata:
+        @category   → task category
+        !priority   → urgency (urgent, today, tomorrow, later)
+        ~recurring  → recurrence pattern (daily, weekly, monthly)
+        ^due date   → natural language date (parsed via dateparser - currently only supports DD/MM/YYYY Format
+
+    Example:    "Buy milk @Groceries !today ^22/10/2025, Write report @Work !urgent ~weekly"
+
+    Side Effects:
+        Adds parsed tasks to the global 'tasks' list and saves changes to file.
+
+     
+    """
     tasks_raw = [t.strip() for t in input_str.split(",") if t.strip()]
     pattern = r"(?P<desc>.+?)(?:\s+@(?P<cat>[^!~^]+))?(?:\s*!\s*(?P<prio>urgent|today|tomorrow|later))?(?:\s*~\s*(?P<recur>daily|weekly|monthly))?(?:\s*\^\s*(?P<due>.+))?$"
 
@@ -133,6 +188,12 @@ def add_task_with_category(input_str):
 
 # === FN FOR DELETING TASKS ===
 def delete_tasks(input_str):
+     """
+    Delete one or more tasks by their numeric index.
+
+    Side Effects:
+        Removes specified tasks from the global 'tasks' list and saves changes.
+    """
     try:
         indices = sorted({int(i) for i in input_str.strip().split()}, reverse=True)
         for i in indices:
@@ -147,6 +208,12 @@ def delete_tasks(input_str):
 
 # === FN FOR MARKING TASKS AS DONE ===
 def mark_done(input_str):
+     """
+    Mark one or more tasks as completed.
+
+    Moves specified tasks from 'tasks' to 'completed_tasks'.
+    For recurring tasks, records the date they were last completed.
+    """
     try:
         indices = sorted({int(i) for i in input_str.strip().split()}, reverse=True)
         for i in indices:
@@ -164,6 +231,11 @@ def mark_done(input_str):
 
 # === MOVING TASKS ===
 def move_task(input_str):
+      """
+    Move a task from one position in the task list to another.
+
+    Expects two integers: the current position (task number) and the target position (what you want the task number to be). 
+    """
     try:
         from_pos, to_pos = map(int, input_str.strip().split())
         if 1 <= from_pos <= len(tasks) and 1 <= to_pos <= len(tasks):
@@ -178,6 +250,11 @@ def move_task(input_str):
 
 # === FN TO SET PRIORITY ON TASKS ===
 def set_priority_command(input_str):
+      """
+    Set the priority of one or more tasks.
+
+    Expects: the task number and the priority it should be - for example, 'priority <task_numbers> <priority_level>'.
+    """
     try:
         parts = input_str.split()
         priority = parts[-1].lower()
@@ -194,6 +271,11 @@ def set_priority_command(input_str):
 
 #== FN TO UPDATE DUE DATE OF TASKS
 def set_due_date_command(input_str):
+     """
+    Set or update the due date for a specific task.
+
+    Parses natural language dates using the dateparser library.
+    """
     try:
         parts = input_str.strip().split()
         task_id = int(parts[0])
@@ -217,6 +299,11 @@ def set_due_date_command(input_str):
 
 # === FN TO SET CATEGORY ON TASKS ===
 def set_category_command(input_str):
+      """
+    Assign a category to one or more tasks.
+
+    Expects: 'category <task_numbers> <category>'.
+    """
     try:
         parts = input_str.split()
         category = parts[-1]
@@ -233,6 +320,11 @@ def set_category_command(input_str):
 
 # === FN TO SET RECURRENCE ON TASKS ===
 def set_recur_command(input_str):
+      """
+    Set the recurrence pattern for one or more tasks.
+
+    Expects: 'recur <task_numbers> <daily|weekly|monthly>'.
+    """
     try:
         parts = input_str.split()
         recurrence = parts[-1].lower()
@@ -249,6 +341,11 @@ def set_recur_command(input_str):
 
 # === FN TO SHOW TASKS BY CATEGORY ===
 def show_tasks_by_category():
+       """
+    Print a simple list of tasks grouped by category.
+
+    Displays category headers followed by numbered tasks with priorities.
+    """
     category_map = defaultdict(list)
     for i, task in enumerate(tasks, start=1):
         category = task.get("category") or "-"
@@ -263,9 +360,20 @@ def show_tasks_by_category():
 
 # === FNs FOR SCHEDULED REMINDER ===
 def scheduled_reminder():
+       """
+    Display a reminder message in the console.
+    """
     print("[bold blue]\U0001F4A1 Reminder: Don't forget to review your tasks today![/bold blue]")
 
 def start_scheduler():
+      """
+    Start a background scheduler that triggers reminders periodically.
+
+    Side Effects:
+        Runs an infinite loop in a background thread to execute scheduled jobs.
+
+        Currently set to default of 86400 seconds or 24 hours. 
+    """
     schedule.every(86400).seconds.do(scheduled_reminder)
     while True:
         schedule.run_pending()
@@ -276,6 +384,14 @@ threading.Thread(target=start_scheduler, daemon=True).start()
 
 # === RUN MAIN LOOP ===
 def run_cli():
+     """
+    This is the main run loop, it launches the interactive CLI for the Zen to Done Task Manager.
+
+    Currently includes the commands for adding, listing, modifying, deleting,
+    and completing tasks. 
+    
+    Runs until 'exit' is entered.
+    """
     load_tasks()
     print("[bold cyan]ZTD CLI Task Manager (type 'help' for options)[/bold cyan]")
     while True:
@@ -313,6 +429,19 @@ def run_cli():
             print("[yellow]Unknown command. Try: add, list, delete, done, move, priority, category, recur, categories, showdone, help, exit[/yellow]")
 
 def move_task(input_str):
+        """
+        Move a task from one position in the active task list to another.
+
+    Expects:
+        input_str (str): Two integers separated by a space, representing
+        the current position of the task and the new desired position.
+        Example: "3 1" moves the task at position 3 to position 1.
+
+    Side Effects:
+        Reorders the global 'tasks' list and saves the updated order to file.
+        Prints a confirmation message or an error if indices are invalid.
+            """
+
     try:
         parts = input_str.strip().split()
         if len(parts) != 2:
@@ -330,6 +459,9 @@ def move_task(input_str):
 
 # === HELP MENU ===
 def show_help():
+      """
+    Print the help menu showing available commands and usage examples.
+    """
     print("""
 Welcome to the Zen To Done (ZTD) CLI Task Manager!
 
