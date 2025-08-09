@@ -1,7 +1,3 @@
----
-
-### **`PRIVACY.md`**
-```markdown
 # Privacy Policy
 
 This document explains how the ZTD CLI Task Manager collects, stores, and handles your data.
