@@ -20,5 +20,93 @@ Each entry includes the date, type of feedback, who gave or received it, what wa
 ## 📌 Entries
 
 ---
+**Date:** Wednesday 6th August 2025
+
+**Feedback Type:** Given
+
+**Project:** https://github.com/truth-josstice/dev1001_assignment2
+
+**Person Involved:** Quinn Ma'aelopa providing feedback to Jordan Leal-Walker and Team
+
+**Documentation Checked:** README.md
+
+**Feedback Provided:**
+
+**Action Taken:** NA
+
+------
+**Date:**
+
+**Feedback Type:** 
+
+**Project:**
+
+**Person Involved:**
+
+**Documentation Checked:**
+
+**Feedback Provided:**
+
+**Action Taken:**
+
+------
+**Date:**
+
+**Feedback Type:** 
+
+**Project:**
+
+**Person Involved:**
+
+**Documentation Checked:**
+
+**Feedback Provided:**
+
+**Action Taken:**
+
+------
+**Date:**
+
+**Feedback Type:** 
+
+**Project:**
+
+**Person Involved:**
+
+**Documentation Checked:**
+
+**Feedback Provided:**
+
+**Action Taken:**
+
+------
+**Date:**
+
+**Feedback Type:** 
+
+**Project:**
+
+**Person Involved:**
+
+**Documentation Checked:**
+
+**Feedback Provided:**
+
+**Action Taken:**
+
+------
+**Date:**
+
+**Feedback Type:** 
+
+**Project:**
+
+**Person Involved:**
+
+**Documentation Checked:**
+
+**Feedback Provided:**
+
+**Action Taken:**
 
 ---
