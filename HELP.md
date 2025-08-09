@@ -71,13 +71,6 @@ They must be typed accurately to work correctly.
 ---
 
 ## File Structure
-- **tasks.json** — Stores active tasks  
-- **done_tasks.json** — Stores completed tasks  
-
----
-
-
-## File Structure
 
 ```
 ztd.py
