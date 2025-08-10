@@ -1,5 +1,7 @@
 # ZTD - CLI Task Manager
 
+![ZTD CLI Task Manager Logo](./images/ZTD%20Task%20Manager%20Logo%20Design.png)
+
 ZTD is a command-line to-do list manager based on the **Zen To Done (ZTD)** methodology developed by **Leo Babauta**.  
 This tool is designed for **productivity** and **simplicity**, with support for priorities, categories, recurring tasks, and more.
 
