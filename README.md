@@ -42,11 +42,10 @@ To learn about security measures, limitations, and options for encrypting your t
 2. Ensure you have **Python 3.10+** installed.
 3. *(Optional but recommended)* Create a virtual environment:
    ```bash
-   python -m venv venv       
+   python -m venv venv       # If `python` doesn't work, try `python3`
    source venv/bin/activate  # macOS/Linux
    venv\Scripts\activate     # Windows
    ```
-   Note: If `python` doesn't work, try `python3`.
 4. Install required third-party tools:
    ```bash
    pip install -r requirements.txt
@@ -55,11 +54,11 @@ To learn about security measures, limitations, and options for encrypting your t
 ---
 ## Usage
 
-To run the app for the first time, run the following code: 
-    
-    `python 'ZTD_APP_Code.py'  
-    `
-Note: If `python` doesn't work, try `python3`.
+To run the app for the first time, run the following code:
+
+    ```bash
+    python 'ZTD_APP_Code.py'   # If `python` doesn't work, try `python3`
+    ```
 
 For usage instructions please refer to [HELP.md](HELP.md)
 
@@ -90,7 +89,7 @@ This project uses the following third-party libraries:
 
 ## Ethical and Legal Considerations
 
-Here are some of the main ethical and legal considerations for the third party licenses/software used for this tool. 
+Here are some of the main ethical and legal considerations for the third party licenses/software used for this tool.
 
 * **Open Source Attribution:** All third-party libraries selected for this project are open-source and included under valid licenses (MIT, BSD).
 * **Usage Boundaries:** Third party Libraries are used non-commercially and legally, without modification or redistribution outside this project.
@@ -110,3 +109,4 @@ For more details on privacy and security practices for ZTD, please refer to:
 ## Thank You
 
 This software was created by **Vikashan Thayanithy** as part of the *CoderAcademy Web Development Bootcamp — Python Module*.
+

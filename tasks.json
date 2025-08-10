@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "description": "Practice Mindfulness",
+    "category": "home",
+    "priority": "today",
+    "recurring": "daily",
+    "due": null
+  },
+  {
+    "description": "Back and Bi's",
+    "category": "gym",
+    "priority": "today",
+    "recurring": "weekly",
+    "due": null
+  },
+  {
+    "description": "Glute Day",
+    "category": "gym",
+    "priority": "tomorrow",
+    "recurring": "weekly",
+    "due": null
+  },
+  {
+    "description": "Chest",
+    "category": "gym",
+    "priority": "later",
+    "recurring": "weekly",
+    "due": null
+  },
+  {
+    "description": "Buy Groceries",
+    "category": "shops",
+    "priority": "tomorrow",
+    "recurring": "weekly",
+    "due": null
+  },
+  {
+    "description": "Water Plants",
+    "category": "home",
+    "priority": "today",
+    "recurring": "weekly",
+    "due": null
+  },
+  {
+    "description": "Pay Electricity Bill",
+    "category": "bills",
+    "priority": "later",
+    "recurring": "monthly",
+    "due": "2025-08-16"
+  },
+  {
+    "description": "isk1001 Assignment 3",
+    "category": "CA",
+    "priority": "urgent",
+    "recurring": "",
+    "due": "2025-10-08"
+  }
+]

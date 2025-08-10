@@ -2,6 +2,10 @@
 
 This guide provides detailed instructions on how to use the ZTD CLI Task Manager.
 
+![Example Tasks in Terminal](./images/List%20Of%20Tasks%20In%20Terminal.png)
+
+---
+
 ## Usage
 
 To run the app for the first time:
@@ -59,6 +63,8 @@ They must be typed accurately to work correctly.
 - `save` — Save tasks manually.  
 - `help` — Show help message.  
 - `exit` — Save and exit the program.
+
+![Example completed Tasks In Terminal](./images/Done%20Tasks%20In%20Terminal.png)
 
 ---
 
