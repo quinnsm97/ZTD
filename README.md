@@ -42,10 +42,11 @@ To learn about security measures, limitations, and options for encrypting your t
 2. Ensure you have **Python 3.10+** installed.
 3. *(Optional but recommended)* Create a virtual environment:
    ```bash
-   python -m venv venv
+   python -m venv venv       
    source venv/bin/activate  # macOS/Linux
    venv\Scripts\activate     # Windows
    ```
+   Note: If `python` doesn't work, try `python3`.
 4. Install required third-party tools:
    ```bash
    pip install -r requirements.txt
@@ -56,8 +57,9 @@ To learn about security measures, limitations, and options for encrypting your t
 
 To run the app for the first time, run the following code: 
     
-    `python 'ZTD_APP_CODE.py'  
+    `python 'ZTD_APP_Code.py'  
     `
+Note: If `python` doesn't work, try `python3`.
 
 For usage instructions please refer to [HELP.md](HELP.md)
 

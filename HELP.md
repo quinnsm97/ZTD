@@ -7,7 +7,7 @@ This guide provides detailed instructions on how to use the ZTD CLI Task Manager
 To run the app for the first time:
 
 ```bash
-python 'ZTD_APP_CODE.py'
+python 'ZTD_APP_Code.py'
 ```
 The program will display a menu with various task management options. You can navigate by entering the corresponding command.
 
