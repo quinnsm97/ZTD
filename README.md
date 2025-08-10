@@ -96,15 +96,6 @@ Here are some of the main ethical and legal considerations for the third party l
 
 ---
 
-## Additional Documentation
-
-For more details on privacy and security practices for ZTD, please refer to:
-
-- [SECURITY.md](./SECURITY.md) — Information about data storage, limitations, and how to encrypt your task data.
-- [PRIVACY.md](./PRIVACY.md) — Details on how ZTD stores, deletes, and backs up your data.
-
----
-
 ## Thank You
 
 This software was created by **Vikashan Thayanithy** as part of the *CoderAcademy Web Development Bootcamp — Python Module*.
