@@ -127,7 +127,7 @@ User tasks created and stored by the application are stored in json plain text, 
 
 <u>**Action Taken:**</u>
 
-SECURITY.md added: Documented that ZTD stores tasks in plain-text JSON (tasks.json and done_tasks.json), explained privacy risks, and added a responsibility disclaimer. Provided recommendations for encrypting data using the cryptography library, with example usage and links to documentation. Included best-practice advice for backups, avoiding sensitive data, and restricting file access.
+Privacy and security policy added to README.md that links to SECURITY.md. Within SECURITY.md documented that ZTD stores tasks in plain-text JSON (tasks.json and done_tasks.json), explained privacy risks, and added a responsibility disclaimer. Provided recommendations for encrypting data using the cryptography library, with example usage and links to documentation. Included best-practice advice for backups, avoiding sensitive data, and restricting file access.
 
 ------
 ### Entry 2
@@ -196,7 +196,7 @@ Proposed Improvement: I would recommend adding a privacy statement in the README
 
 <u>**Action Taken:**</u>
 
-Privacy policy added: Created PRIVACY.md outlining that ZTD collects no remote data, stores all tasks locally in plain-text JSON, explains storage risks, deletion methods, backup practices, and user responsibilities, with a link to encryption guidance in SECURITY.md.
+Privacy and security policy added to README.md, Created PRIVACY.md outlining that ZTD collects no remote data, stores all tasks locally in plain-text JSON, explains storage risks, deletion methods, backup practices, and user responsibilities, with a link to encryption guidance in SECURITY.md.
 
 
 ---

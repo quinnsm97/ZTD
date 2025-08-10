@@ -30,6 +30,11 @@ The app runs in the Command Line Interface (CLI) and has the following features:
 - **Interface:** Command Line (Terminal or PowerShell)
 
 ---
+## Privacy and Security
+
+ZTD respects your privacy by storing all task data locally on your device without sharing it externally. For detailed information about data storage, privacy practices, and how to protect your information, please see the [PRIVACY.md](./PRIVACY.md) document.  
+
+To learn about security measures, limitations, and options for encrypting your task data, please refer to the [SECURITY.md](./SECURITY.md) file.
 
 ## Installation
 
