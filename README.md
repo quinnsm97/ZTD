@@ -56,9 +56,8 @@ To learn about security measures, limitations, and options for encrypting your t
 
 To run the app for the first time, run the following code:
 
-    ```bash
-    python 'ZTD_APP_Code.py'   # If `python` doesn't work, try `python3`
-    ```
+   `python 'ZTD_APP_Code.py'
+   `
 
 For usage instructions please refer to [HELP.md](HELP.md)
 
